@@ -1,0 +1,51 @@
+while True:
+    print('Здраствуйте пользователь я...')
+    print("---Кулинарный калькулятор---")
+    print("Операции: ")
+    print("1 - сложение + (добавление ингредиентов) ")
+    print("2 - вычитание - (вычитание ингредиентов) ")
+    print("3 - умножение * (умножение ингредиентов) ")
+    print("4 - деление на цело %")
+    print("5 - деление /")
+    print("6 - деление с остатком //")
+    print("7 - степень **")
+    num_operation = int(input("Введите номер операции который хотите исползовать: "))
+    num1 = int(input("Введите первое значение: "))
+    num2 = int(input("Введите второе значение: "))
+
+    if num_operation == 1:
+        result = num1 + num2 
+        print(num1 + num2)
+    elif num_operation == 2:
+        result = num1 - num2 
+        print(num1 - num2)
+    elif num_operation == 3:
+        result = num1 - num2 
+        print(num1 * num2)
+    elif num_operation == 4:
+        result = num1 % num2 
+        print(num1 % num2)
+    elif num_operation == 5:
+        result = num1 / num2 
+        print(num1 / num2)
+    elif num_operation == 6:
+        result = num1 // num2 
+        print(num1 // num2)
+    elif num_operation == 7:
+        result = num1 ** num2 
+        print(num1 ** num2)
+    elif num1 / num2 == 0:
+        print("Нельзя делить на 0")
+    else:
+        print("Вы ввели не существующий вариант")
+
+    if result > 12:
+        print("получилась большая порция")
+    elif result < 12:
+        print("Получилось нормальная порция( Хорошая=) )")
+
+    again = input("Нужно ли посчитать еще что то ?(да/нет)").lower
+    if again != "да":
+        print("Был рад помочь")
+        print("Давайте почитаем все занвао <3")
+    continue  
