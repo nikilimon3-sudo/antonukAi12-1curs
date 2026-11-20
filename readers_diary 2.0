@@ -1,0 +1,97 @@
+diary = []  # Список для книг
+
+
+def show_menu():
+    print("=====Читательский Дневник=====")
+    print("Я умею делать такие вещи как: ")
+    print("1 - Добавить книгу")
+    print("2 - Показать все книги")
+    print("3 - Показать последние 5 книг")
+    print("4 - Заменить название книги")
+    print("5 - Поиск по номеру в хранилище")
+    print("6 - Статистика")
+    print("7 - Удалить книгу")
+    print("0 - Выход")
+
+
+def add():
+    name_book = input("Введите название книги: ")
+    diary.append(name_book.capitalize())
+
+
+def show_book():
+    if len(diary) == 0:
+        print("В дневнике пока нет книг.")
+    else:
+        for i, book in enumerate(diary, start=1):
+            print(f"{i}. {book}")
+
+
+def last_five():
+    if len(diary) == 0:
+        print("В дневнике пока нет книг.")
+    else:
+        print(diary[-5:])
+
+
+def change():
+    change1 = input("Введите книгу на замену: ")
+    if change1 in diary:
+        change2 = input("Введите книгу для замены: ")
+        diary[diary.index(change1)] = change2.capitalize()
+        print("Название заменено!")
+    else:
+        print("Такой книги нет в дневнике.")
+
+
+def find():
+    find_book = int(input("Введите номер книги, которую хотите найти в хранилище: "))
+    if 1 <= find_book <= len(diary):
+        print(diary[find_book - 1])
+    else:
+        print("Книги с таким номером нет.")
+
+
+def stat():
+    print("Статистика: ")
+    print("Это все книги, которые были добавлены самыми последними: ")
+    print(diary[-2:])
+
+
+def remove():
+    realy_remove = input("Какую книгу вы хотите удалить? : ")
+    if realy_remove in diary:
+        chek = input("Вы точно хотите удалить эту книгу? ")
+        if chek.lower() == "да":
+            diary.remove(realy_remove)
+            print("Книга удалена!")
+        else:
+            print("Отмена")
+    else:
+        print("Такой книги нет в дневнике.")
+
+
+while True:
+    print("МЕНЮ(10)", "ВЫХОД(0)")
+    operation = int(input("Выберете операцию: "))
+    if operation == 0:  # Операция 0 - вежливо прощается с пользователем и завершает программу
+        print("Досвидания!")
+        break
+    elif operation == 1:  # Операция 1 - добавляет название книги в список с заглавной буквы
+        add()
+    elif operation == 2:  # Операция 2 - показывает список (все книги)
+        show_book()
+    elif operation == 3:  # Операция 3 - показывает последние 5 книг в списке
+        last_five()
+    elif operation == 4:  # Операция 4 - заменяет название книги по индексу
+        change()
+    elif operation == 5:  # Операция 5 - находит книгу по номеру в хранилище
+        find()
+    elif operation == 6:  # Операция 6 - показывает статистику (последние 2 книги)
+        stat()
+    elif operation == 7:  # Операция 7 - удаляет книгу с подтверждением
+        remove()
+    elif operation == 10:
+        show_menu()
+    else:
+        print("Операция не найдена!")
